@@ -2,11 +2,7 @@
 
 Simple script to empty your gmail trash
 
-Since the setting to automatically delete trash is not configurable
-
-and only happens every 30 days, you can use this to empty your trash
-
-on a more regular basis using a crontask.
+Since the setting to automatically delete trash is not configurable and only happens every 30 days, you can use this to empty your trash on a more regular basis using launchd or a crontask.
 
 ## Setup
 
