@@ -34,7 +34,7 @@ This setup will run the script every ten minutes.
  <plist version="1.0">
  <dict>
      <key>Label</key>
-     <string>com.eric.gmail</string>
+     <string>com.username.gmail</string>
      <key>ProgramArguments</key>
      <array>
          <string>/path/to/python</string>
