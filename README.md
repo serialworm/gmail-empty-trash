@@ -22,7 +22,7 @@ $ python empty-trash.py
 Setup a `gmail-empty-trash.plist` file in `~/Library/LaunchAgents`
 
 This setup will run the script every ten minutes.
-
+(change the `/path/to/python` and `/path/to/script` values to match your environment)
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
@@ -46,4 +46,11 @@ Load the LaunchAgent
 
 ``` shell
 $ launchctl load -w ~/Library/LaunchAgents/gmail-empty-trash.plist
+```
+
+## Linux
+A simple crontask could be configured to run the script on Linux.
+
+```
+*/10 * * * * /path/to/script/empty-trash.py
 ```
