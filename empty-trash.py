@@ -65,15 +65,20 @@ def main():
             threads.extend(response['threads'])
             for thread in threads:
                 try:
-                    service.users().messages().delete(
+                    items = service.users().threads().get(
                         userId='me', id=thread['id']).execute()
-                    print('Message with id: %s deleted successfully.' %
-                          thread['id'])
+
+                    for item in items['messages']:
+                        print('Deleting message: %s' % item['id'])
+                        service.users().messages().delete(
+                            userId='me', id=item['id']).execute()
+
                 except errors.HttpError as error:
                     print('An error occurred: %s' % error)
 
     except errors.HttpError as error:
         print('An error occurred: %s' % error)
+
 
 if __name__ == '__main__':
     main()
