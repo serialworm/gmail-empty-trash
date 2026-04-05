@@ -58,4 +58,6 @@ target/
 
 # Client Secret
 client_secret.json
+token.json
+venv/
 
