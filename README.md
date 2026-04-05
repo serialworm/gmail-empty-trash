@@ -41,17 +41,25 @@ pip install -r requirements.txt
 Run the script manually to authenticate:
 
 ```bash
-python empty-trash.py
+python empty_trash.py
 ```
 
 On the first run, it will open a browser for you to authorize the application. A `token.json` file will be created to store your credentials securely.
+
+### Troubleshooting: "Google hasn't verified this app"
+If you see a "Google hasn't verified this app" warning:
+1. Click **Advanced**.
+2. Click **Go to Gmail Empty Trash (unsafe)**.
+3. Click **Continue**.
+
+This occurs because the script is a private application. To avoid this, you can add your email as a **Test User** in the Google Cloud Console under the "OAuth consent screen" settings.
 
 ### Dry Run
 
 To see how many messages are in the trash without deleting them:
 
 ```bash
-python empty-trash.py --dry-run
+python empty_trash.py --dry-run
 ```
 
 ## Automation
@@ -70,7 +78,7 @@ Create a plist file in `~/Library/LaunchAgents/com.user.gmail-empty-trash.plist`
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/python3</string>
-        <string>/path/to/your/empty-trash.py</string>
+        <string>/path/to/your/empty_trash.py</string>
     </array>
     <key>StartInterval</key>
     <integer>3600</integer> <!-- Every hour -->
@@ -90,5 +98,5 @@ launchctl load ~/Library/LaunchAgents/com.user.gmail-empty-trash.plist
 Add a crontab entry to run every hour:
 
 ```bash
-0 * * * * cd /path/to/project && /path/to/venv/bin/python empty-trash.py
+0 * * * * cd /path/to/project && /path/to/venv/bin/python empty_trash.py
 ```
